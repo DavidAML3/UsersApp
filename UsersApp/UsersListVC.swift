@@ -7,10 +7,8 @@
 
 import UIKit
 
-class UsersVC: UIViewController {
-
+class UsersListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
-
