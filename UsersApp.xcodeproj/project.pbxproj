@@ -76,20 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		359C191E25453E9F00A2FBCA /* Extensions-Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Extensions-Utilities";
-			sourceTree = "<group>";
-		};
-		359C191F25453EB100A2FBCA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		359C192025453EBB00A2FBCA /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +118,6 @@
 		35D7DD52254531C40074B6AB /* UsersApp */ = {
 			isa = PBXGroup;
 			children = (
-				359C191E25453E9F00A2FBCA /* Extensions-Utilities */,
-				359C191F25453EB100A2FBCA /* Model */,
 				35D7DD64254531C50074B6AB /* Info.plist */,
 				35D7DD57254531C40074B6AB /* UsersVC.swift */,
 				359C192025453EBB00A2FBCA /* Supporting */,
