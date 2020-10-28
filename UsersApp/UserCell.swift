@@ -44,48 +44,48 @@ class UserCell: UITableViewCell {
     func configureNameLabel() {
         userNameLabel.numberOfLines = 0
         userNameLabel.adjustsFontSizeToFitWidth = true
-        userNameLabel.textColor = .green
+        userNameLabel.textColor = .universalGreenF
     }
     
     func configurePhoneLabel() {
         userPhoneLabel.numberOfLines = 0
         userPhoneLabel.adjustsFontSizeToFitWidth = true
-        userPhoneLabel.textColor = .green
+        userPhoneLabel.textColor = .universalGreenF
     }
     
     func configureEmailLabel() {
         userEmailLabel.numberOfLines = 0
         userEmailLabel.adjustsFontSizeToFitWidth = true
-        userEmailLabel.textColor = .green
+        userEmailLabel.textColor = .universalGreenF
     }
     
     func configurePublicationsButton() {
         getPublicationsButton.setTitle("Get publications", for: .normal)
-        getPublicationsButton.setTitleColor(.green, for: .normal)
+        getPublicationsButton.setTitleColor(.universalGreenF, for: .normal)
     }
     
     func setNameLabelConstrains() {
-        userNameLabel.translatesAutoresizingMaskIntoConstraints                                                 = false
-        userNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive                            = true
-        userNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive                    = true
+        userNameLabel.translatesAutoresizingMaskIntoConstraints                                                     = false
+        userNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive                               = true
+        userNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive                       = true
     }
     
     func setPhoneLabelConstrains() {
-        userPhoneLabel.translatesAutoresizingMaskIntoConstraints                                                = false
-        userPhoneLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 5).isActive          = true
-        userPhoneLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive                   = true
+        userPhoneLabel.translatesAutoresizingMaskIntoConstraints                                                    = false
+        userPhoneLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 5).isActive              = true
+        userPhoneLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive                      = true
     }
     
     func setEmailLabelConstrains() {
-        userEmailLabel.translatesAutoresizingMaskIntoConstraints                                                = false
-        userEmailLabel.topAnchor.constraint(equalTo: userPhoneLabel.bottomAnchor, constant: 5).isActive         = true
-        userEmailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive                   = true
+        userEmailLabel.translatesAutoresizingMaskIntoConstraints                                                    = false
+        userEmailLabel.topAnchor.constraint(equalTo: userPhoneLabel.bottomAnchor, constant: 5).isActive             = true
+        userEmailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive                      = true
     }
     
     func setPublicationsButtonConstrains() {
-        getPublicationsButton.translatesAutoresizingMaskIntoConstraints                                         = false
-        getPublicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive          = true
-        getPublicationsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5).isActive              = true
-        getPublicationsButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 5).isActive  = true
+        getPublicationsButton.translatesAutoresizingMaskIntoConstraints                                             = false
+        getPublicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive            = true
+        getPublicationsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive                = true
+        getPublicationsButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 5).isActive      = true
     }
 }
