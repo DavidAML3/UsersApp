@@ -30,6 +30,7 @@ class UsersListVC: UIViewController {
         configureCellSize()
         tableView.register(UserCell.self, forCellReuseIdentifier: Cells.userCell)
         tableView.pin(to: view)
+        tableView.backgroundColor = .clear
     }
     
     func configureCellSize() {
@@ -84,7 +85,7 @@ extension UsersListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
         header.isUserInteractionEnabled = false
-        header.backgroundColor = view.backgroundColor
+        header.backgroundColor = .clear
         return header
     }
     
@@ -92,6 +93,7 @@ extension UsersListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.userCell) as! UserCell
         let user = users[indexPath.section]
         cell.set(user: user)
+        cell.addShadow()
         
         return cell
     }
