@@ -15,4 +15,12 @@ extension UIView {
         trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive   = true
         bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive       = true
     }
+    
+    func addShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowRadius = 1.0
+        self.layer.shadowOffset = CGSize(width: 0, height: 1.5)
+        self.layer.masksToBounds = false
+    }
 }
