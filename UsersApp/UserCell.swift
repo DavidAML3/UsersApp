@@ -37,31 +37,53 @@ class UserCell: UITableViewCell {
     
     func set(user: User) {
         userNameLabel.text = user.name
-        userPhoneLabel.text = user.phone
-        userEmailLabel.text = user.email
+        userPhoneLabel.attributedText = setIconToLeft(img: images.phone, string: user.phone)
+        userEmailLabel.attributedText = setIconToLeft(img: images.mail, string: user.email)
+    }
+    
+    func setIconToLeft(img: UIImage, string: String) -> NSMutableAttributedString {
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = img
+        
+        let imageOffSetY: CGFloat = -5.0
+        imageAttachment.bounds = CGRect(x: 0, y: imageOffSetY, width: 10, height: 10)
+        
+        let attachmentString = NSAttributedString(attachment: imageAttachment)
+        
+        let completeText = NSMutableAttributedString(string: "")
+        completeText.append(attachmentString)
+        
+        let textAfterIcon = NSAttributedString(string: string)
+        completeText.append(textAfterIcon)
+        
+        return completeText
     }
     
     func configureNameLabel() {
         userNameLabel.numberOfLines = 0
-        userNameLabel.adjustsFontSizeToFitWidth = true
+        userNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        userNameLabel.adjustsFontSizeToFitWidth = false
         userNameLabel.textColor = .universalGreenF
     }
     
     func configurePhoneLabel() {
         userPhoneLabel.numberOfLines = 0
-        userPhoneLabel.adjustsFontSizeToFitWidth = true
+        userPhoneLabel.font = userPhoneLabel.font.withSize(16)
+        userPhoneLabel.adjustsFontSizeToFitWidth = false
         userPhoneLabel.textColor = .universalGreenF
     }
     
     func configureEmailLabel() {
         userEmailLabel.numberOfLines = 0
-        userEmailLabel.adjustsFontSizeToFitWidth = true
+        userEmailLabel.font = userEmailLabel.font.withSize(16)
+        userEmailLabel.adjustsFontSizeToFitWidth = false
         userEmailLabel.textColor = .universalGreenF
     }
     
     func configurePublicationsButton() {
         getPublicationsButton.setTitle("Get publications", for: .normal)
         getPublicationsButton.setTitleColor(.universalGreenF, for: .normal)
+        getPublicationsButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
     func setNameLabelConstrains() {
@@ -86,6 +108,5 @@ class UserCell: UITableViewCell {
         getPublicationsButton.translatesAutoresizingMaskIntoConstraints                                             = false
         getPublicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive            = true
         getPublicationsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive                = true
-        getPublicationsButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 5).isActive      = true
     }
 }
