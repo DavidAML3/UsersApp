@@ -107,7 +107,8 @@ extension UsersListVC {
         let user3 = User(id: 3, name: "Carlos", phone: "3456789012", email: "Carlos@email.com")
         let user4 = User(id: 4, name: "Daniel", phone: "4567890123", email: "Daniel@email.com")
         let user5 = User(id: 5, name: "Felipe", phone: "5678901234", email: "Felipe@email.com")
+        let user6 = User(id: 6, name: "Angela", phone: "6789012345", email: "Angela@email.com")
         
-        return [user1, user2, user3, user4, user5]
+        return [user1, user2, user3, user4, user5, user6]
     }
 }
