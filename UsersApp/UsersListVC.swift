@@ -9,6 +9,7 @@ import UIKit
 
 class UsersListVC: UIViewController {
     
+    var searchBar = UITextField()
     var tableView = UITableView()
     var users: [User] = []
     
@@ -21,6 +22,7 @@ class UsersListVC: UIViewController {
         setNavigationBar()
         view.backgroundColor = .universalCream
         users = fetchData()
+        configureSearchBar()
         configureTableView()
     }
     
@@ -35,6 +37,7 @@ class UsersListVC: UIViewController {
     
     func configureCellSize() {
         tableView.rowHeight = 150
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
     }
@@ -56,6 +59,13 @@ class UsersListVC: UIViewController {
         navigationController?.navigationBar.barTintColor = .universalGreen
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.universalCreamF,
                                                                    NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+    }
+    
+    func configureSearchBar() {
+        searchBar = UITextField(frame: CGRect(x: 20, y: 80, width: UIScreen.main.bounds.size.width - 40, height: 50))
+        searchBar.backgroundColor = .black
+        
+        view.addSubview(searchBar)
     }
     
     func setTableViewDelegates() {

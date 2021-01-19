@@ -45,13 +45,16 @@ class UserCell: UITableViewCell {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = img
         
-        let imageOffSetY: CGFloat = -5.0
-        imageAttachment.bounds = CGRect(x: 0, y: imageOffSetY, width: 10, height: 10)
+        let imageOffSetY: CGFloat = -4.0
+        imageAttachment.bounds = CGRect(x: 0, y: imageOffSetY, width: 18, height: 18)
         
         let attachmentString = NSAttributedString(attachment: imageAttachment)
         
         let completeText = NSMutableAttributedString(string: "")
         completeText.append(attachmentString)
+        
+        let middleText = NSMutableAttributedString(string: " ")
+        completeText.append(middleText)
         
         let textAfterIcon = NSAttributedString(string: string)
         completeText.append(textAfterIcon)
