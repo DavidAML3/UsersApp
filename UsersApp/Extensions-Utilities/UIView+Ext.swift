@@ -23,4 +23,14 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: 0, height: 1.5)
         self.layer.masksToBounds = false
     }
+    
+    func addSeparator() {
+        let separatorHeight: CGFloat = 20
+        let frame = CGRect(x: 0, y: bounds.height - separatorHeight, width: bounds.width, height: separatorHeight)
+        let separator = UIView(frame: frame)
+        separator.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        separator.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        
+        addSubview(separator)
+    }
 }

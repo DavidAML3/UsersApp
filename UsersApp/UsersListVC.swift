@@ -9,9 +9,10 @@ import UIKit
 
 class UsersListVC: UIViewController {
     
-    var searchBar = UITextField()
+    var searchBar = UISearchBar()
     var tableView = UITableView()
     var users: [User] = []
+    var searching = false
     
     struct Cells {
         static let userCell = "UserCell"
@@ -19,10 +20,9 @@ class UsersListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
         view.backgroundColor = .universalCream
         users = fetchData()
-        configureSearchBar()
+        setNavigationBar()
         configureTableView()
     }
     
@@ -37,7 +37,6 @@ class UsersListVC: UIViewController {
     
     func configureCellSize() {
         tableView.rowHeight = 150
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
     }
@@ -61,13 +60,6 @@ class UsersListVC: UIViewController {
                                                                    NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
     }
     
-    func configureSearchBar() {
-        searchBar = UITextField(frame: CGRect(x: 20, y: 80, width: UIScreen.main.bounds.size.width - 40, height: 50))
-        searchBar.backgroundColor = .black
-        
-        view.addSubview(searchBar)
-    }
-    
     func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -76,32 +68,14 @@ class UsersListVC: UIViewController {
 
 extension UsersListVC: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return users.count
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0
-        } else {
-            return 20
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.isUserInteractionEnabled = false
-        header.backgroundColor = .clear
-        return header
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.userCell) as! UserCell
-        let user = users[indexPath.section]
+        let user = users[indexPath.row]
+        
         cell.set(user: user)
         cell.addShadow()
         

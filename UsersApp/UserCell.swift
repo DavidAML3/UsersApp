@@ -16,6 +16,7 @@ class UserCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(userNameLabel)
         addSubview(userPhoneLabel)
         addSubview(userEmailLabel)
@@ -25,10 +26,35 @@ class UserCell: UITableViewCell {
         configurePhoneLabel()
         configureEmailLabel()
         configurePublicationsButton()
+        
         setNameLabelConstrains()
         setPhoneLabelConstrains()
         setEmailLabelConstrains()
         setPublicationsButtonConstrains()
+    }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        let separatorLineHeight: CGFloat = 20/UIScreen.main.scale
+//        
+//        let separator = UIView()
+//        
+//        separator.frame = CGRect(x: self.frame.origin.x,
+//                                 y: self.frame.size.height - separatorLineHeight,
+//                                 width: self.frame.size.width,
+//                                 height: separatorLineHeight)
+//        
+//        separator.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+//        
+//        self.addSubview(separator)
+//    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let margins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        bounds = bounds.inset(by: margins)
     }
     
     required init?(coder: NSCoder) {
